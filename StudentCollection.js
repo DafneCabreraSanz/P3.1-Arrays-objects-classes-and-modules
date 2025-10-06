@@ -47,15 +47,12 @@ export default class StudentCollection {
     return total / student.grades.length;
   }
 
-  //getEnrolledStudents
+  //getEnrolledStudents with filter
   getEnrolledStudents() {
-    const enrolledStudents = [];
-    for (let i = 0; i < this.students.length; i++) {
-      if (this.students[i].enrolled===true) {
-        enrolledStudents.push(this.students[i]);
-      }
-    }
-    return enrolledStudents;
+    return this.students.filter(s => {
+      if (!s.isEnrolled) return false;
+      return s.isEnrolled;
+    });
   }
 
 

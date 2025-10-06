@@ -45,9 +45,18 @@ export default class StudentCollection {
     }
     return total / student.grades.length;
   }
+  }
 
   //getEnrolledStudents
-
+  getEnrolledStudents() {
+    const enrolledStudents = [];
+    for (let i = 0; i < this.students.length; i++) {
+      if (this.students[i].enrolled) {
+        enrolledStudents.push(this.students[i]);
+      }
+    }
+    return enrolledStudents;
+  }
 
   //getStudentsAboveAge
   getStudentsAboveAge(age) {
@@ -78,12 +87,7 @@ export default class StudentCollection {
     }));
   }
 
-  getTopStudents(threshold) {
-    return this.students.filter(s => {
-      const avg = this.calculateAverageGrade(s.name);
-      return avg !== null && avg > threshold;
-    });
-  }
+ // get top Student threshold
 
   //getStudentSummaries
   getStudentSummaries() {
@@ -94,21 +98,6 @@ export default class StudentCollection {
   }
 
   getTopStudents(threshold) {
-    return this.students.filter(s => {
-      const avg = this.calculateAverageGrade(s.name);
-      return avg !== null && avg > threshold;
-    });
-  }
-
-  //getEnrolledStudentNames
-  getEnrolledStudentNames() {
-   const names = [];
-   for (const s of this.students) {
-     if (s.enrolled) {
-       names.push(s.name);
-     }
-   }
-   return names;
   }
 
 

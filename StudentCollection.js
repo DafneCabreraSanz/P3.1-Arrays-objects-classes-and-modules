@@ -18,7 +18,11 @@ export default class StudentCollection {
 
   //removeStudentByName
   removeStudentByName(name) {
-    this.students = this.students.filter(s => s.name !== name);
+    for (let i = 0; i < this.students.length; i++) {
+      if (this.students[i].name === name) {
+        this.students.splice(i, 1);
+        return;
+      }
   }
 
   //updateStudentGrades
@@ -36,11 +40,7 @@ export default class StudentCollection {
     const sum = student.grades.reduce((a, b) => a + b, 0);
     return sum / student.grades.length;
   }
-
   //getEnrolledStudents
-  getEnrolledStudents() {
-    return this.students.filter(s => s.enrolled);
-  }
 
 
   //getStudentsAboveAge

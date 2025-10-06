@@ -33,13 +33,19 @@ export default class StudentCollection {
     }
   }
 
-  //calculateAverageGrade
+  //calculateAverageGrade with for 
   calculateAverageGrade(name) {
     const student = this.getStudentByName(name);
-    if (!student || !student.grades || student.grades.length === 0) return null;
-    const sum = student.grades.reduce((a, b) => a + b, 0);
-    return sum / student.grades.length;
+    if (!student || !student.grades || student.grades.length === 0) {
+      return null;
+    }
+    let total = 0;
+    for (let i = 0; i < student.grades.length; i++) {
+      total += student.grades[i];
+    }
+    return total / student.grades.length;
   }
+
   //getEnrolledStudents
 
 

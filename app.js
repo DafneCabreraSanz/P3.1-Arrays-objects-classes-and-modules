@@ -51,7 +51,7 @@ console.log("Top student:", studentCollection.getTopStudent());
 console.log("Student summaries:", studentCollection.getStudentSummaries());
 
 // Get top students above a threshold
-
+console.log("Top students above 90:", studentCollection.getTopStudents(90));
 // Get enrolled student names
 console.log("Enrolled student names:", studentCollection.getEnrolledStudents());
 

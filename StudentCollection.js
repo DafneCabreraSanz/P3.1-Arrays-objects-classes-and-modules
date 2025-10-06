@@ -110,9 +110,12 @@ export default class StudentCollection {
     }));
   }
 
-  //Filters students by a grade threshold.
+  //Filters students threshold
   getTopStudents(threshold) {
- 
+    return this.students.filter(s => {
+      const avg = this.calculateAverageGrade(s.name);
+      return avg !== null && avg >= threshold;
+    });
   }
 
 

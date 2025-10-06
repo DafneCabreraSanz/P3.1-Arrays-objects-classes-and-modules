@@ -40,19 +40,20 @@ const avgJane = studentCollection.calculateAverageGrade("Jane Smith");
 console.log("Jane Smith's average grade:", avgJane);
 
 // Get enrolled students
-const enrolledStudents = studentCollection.getEnrolledStudents();
-console.log("Enrolled students:", enrolledStudents);
+console.log("Enrolled students:", studentCollection.getEnrolledStudents());
 // Get students above a certain age
 console.log("Students above age 19:", studentCollection.getStudentsAboveAge(19));
+
+// Get top student
+console.log("Top student:", studentCollection.getTopStudent());
 
 // Get student summaries
 console.log("Student summaries:", studentCollection.getStudentSummaries());
 
 // Get top students above a threshold
-console.log("Top students above 85:", studentCollection.getTopStudents(85));
 
 // Get enrolled student names
-console.log("Enrolled student names:", studentCollection.getEnrolledStudentNames());
+console.log("Enrolled student names:", studentCollection.getEnrolledStudents());
 
 // Get honor roll students (average >= 90)
 console.log("Honor roll students:", studentCollection.getHonorRollStudents());

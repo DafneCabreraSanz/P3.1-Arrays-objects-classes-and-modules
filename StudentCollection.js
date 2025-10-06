@@ -23,6 +23,7 @@ export default class StudentCollection {
         this.students.splice(i, 1);
         return;
       }
+    }
   }
 
   //updateStudentGrades
@@ -45,18 +46,18 @@ export default class StudentCollection {
     }
     return total / student.grades.length;
   }
-  }
 
   //getEnrolledStudents
   getEnrolledStudents() {
     const enrolledStudents = [];
     for (let i = 0; i < this.students.length; i++) {
-      if (this.students[i].enrolled) {
+      if (this.students[i].enrolled===true) {
         enrolledStudents.push(this.students[i]);
       }
     }
     return enrolledStudents;
   }
+
 
   //getStudentsAboveAge
   getStudentsAboveAge(age) {
@@ -87,7 +88,19 @@ export default class StudentCollection {
     }));
   }
 
- // get top Student threshold
+ // get student with the highest average grade
+  getTopStudent() {
+    let topStudent = null;
+    let highestAvg = -1;
+    this.students.forEach(s => {
+      const avg = this.calculateAverageGrade(s.name);
+      if (avg !== null && avg > highestAvg) {
+        highestAvg = avg;
+        topStudent = s;
+      }
+    });
+    return topStudent;
+  }
 
   //getStudentSummaries
   getStudentSummaries() {
@@ -97,11 +110,13 @@ export default class StudentCollection {
     }));
   }
 
+  //Filters students by a grade threshold.
   getTopStudents(threshold) {
+ 
   }
 
 
-  //formatGrades
+  //formatGrades Returns an array of strings formatting each student's grades.
   formatGrades() {
     
   }

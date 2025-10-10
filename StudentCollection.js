@@ -37,7 +37,7 @@ export default class StudentCollection {
   //calculateAverageGrade with for 
   calculateAverageGrade(name) {
     const student = this.getStudentByName(name);
-    if (!student || !student.grades || student.grades.length === 0) {
+    if (!student || !student.grades) {
       return null;
     }
     let total = 0;
@@ -59,21 +59,6 @@ export default class StudentCollection {
   //getStudentsAboveAge
   getStudentsAboveAge(age) {
     return this.students.filter(s => s.age > age);
-  }
-
-  //getTopStudent
-  getTopStudent() {
-    let topStudent = null;
-    let highestAvg = -1;
-
-    this.students.forEach(s => {
-      const avg = this.calculateAverageGrade(s.name);
-      if (avg !== null && avg > highestAvg) {
-        highestAvg = avg;
-        topStudent = s;
-      }
-    });
-    return topStudent;
   }
 
 
@@ -116,15 +101,12 @@ export default class StudentCollection {
   }
 
 
-  //formatGrades Returns an array of strings formatting each student's grades.
-  formatGrades() {
-    
-  }
+
 
     //getHonorRollStudents
     getHonorRollStudents() {
     return this.students.filter(s => {
-      if (!s.grades || s.grades.length === 0) return false;
+      if (!s.grades) return false;
         const avg = this.calculateAverageGrade(s.name);
       return avg >= 90;
     });

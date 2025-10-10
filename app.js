@@ -20,11 +20,6 @@ console.log("Found student:", foundStudent);
 // Add a new student
 studentCollection.addStudent("Emily White", 21, [88, 90, 92], true);
 
-// Find the top student based on grades
-const topStudent = studentCollection.getTopStudent();
-console.log("Top student:", topStudent);
-
-
 // TASK: test all the methods you have created:
 
 // Remove a student by name
